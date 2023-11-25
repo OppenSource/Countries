@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup_node@v2
+        uses: actions/setup-node@v2
         with:
           node_version: 18.x
 
