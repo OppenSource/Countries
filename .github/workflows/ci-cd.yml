@@ -31,7 +31,7 @@ jobs:
       - name: Installer Versel CLI
         run: npm install --global vercel@latest
 
-      - name: Pull Versel ENV
+      - name: Pull Versel Configurations
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
