@@ -1,5 +1,8 @@
 name: CI/CD
-
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  
 on:
   push:
     branches:
@@ -24,6 +27,20 @@ jobs:
 
       - name: Installer les dépendances
         run: npm install
+
+      - name: Installer Versel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Versel ENV
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+
 
       # permet de savoir quelles parties de l'application sont convers par les tests
       - name: Tests
