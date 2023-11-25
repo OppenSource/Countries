@@ -1,0 +1,87 @@
+<div class="container-fuid mt-3">
+  <div class="row col-md-12 mx-auto">
+    <app-region
+      class="col-md-4"
+      [title]="'Liste des régions'"
+      [elements]="listRegions"
+      (regionSelected)="handleRegionSelection($event)"
+    ></app-region>
+    <app-sous-region
+      class="col-md-4"
+      [title]="'Liste des sous-régions'"
+      [subtitle]="selectedRegion"
+      [elements]="listSousRegions"
+      (regionSubregion)="handleSubRegionSelection($event)"
+    ></app-sous-region>
+    <app-pays
+      class="col-md-4"
+      [title]="'Liste des pays'"
+      [elements]="listPays"
+      [searchResult]="listPays"
+    ></app-pays>
+  </div>
+
+  <div class="row container-fluid mb-5">
+    <div class="col-md-6 container-fluid mt-5">
+      <div class="card">
+        <div class="alert alert-secondary">
+          Statistiques relatives à l'afrique
+        </div>
+        <div class="card-body p-3">
+          <app-statistic
+            [data_country]="graph_afrique"
+            [dataIsLoading]="!dataIsLoaded"
+            [dataIsLoaded]="dataIsLoaded"
+          >
+          </app-statistic>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 container-fluid mt-5">
+      <div class="card">
+        <div class="alert alert-secondary">
+          Statistiques relatives à l'europe
+        </div>
+        <div class="card-body p-3">
+          <app-statistic
+            [data_country]="graph_europe"
+            [dataIsLoading]="!dataIsLoaded"
+            [dataIsLoaded]="dataIsLoaded"
+          >
+          </app-statistic>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 container-fluid mt-5">
+      <div class="card">
+        <div class="alert alert-secondary">Statistiques relatives à l'asie</div>
+        <div class="card-body p-3">
+          <app-statistic
+            [data_country]="graph_asia"
+            [dataIsLoading]="!dataIsLoaded"
+            [dataIsLoaded]="dataIsLoaded"
+          >
+          </app-statistic>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 container-fluid mt-5">
+      <div class="card">
+        <div class="alert alert-secondary">
+          Statistiques relatives à l'amérique
+        </div>
+        <div class="card-body p-3">
+          <app-statistic
+            [data_country]="graph_america"
+            [dataIsLoading]="!dataIsLoaded"
+            [dataIsLoaded]="dataIsLoaded"
+          >
+          </app-statistic>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

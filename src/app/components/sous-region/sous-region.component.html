@@ -1,0 +1,34 @@
+<main class="h-400">
+  <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row overflow-hidden">
+      <div class="col-12 h-100">
+        <div class="card">
+          <div class="card-header text-dark text-center fw-bold text-uppercase">
+            {{ title }}
+          </div>
+          <div class="overflow-auto h-100">
+            <table class="table table-bordered mt-1 table-sm table-hover">
+              <tbody>
+                <tr
+                  *ngFor="let item of elements"
+                  (click)="selectSubRegion(item.subregion)"
+                >
+                  <td class="text-center">
+                    <div>{{ item.subregion }}</div>
+                    <span class="small">Région mère : {{ subtitle }}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="container" *ngIf="elements.length <= 0">
+              <div class="alert alert-danger p-3 text-center fw-bold">
+                sous-région indisponible
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

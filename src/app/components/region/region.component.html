@@ -1,0 +1,31 @@
+<main class="h-400">
+  <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row overflow-hidden">
+      <div class="col-12 h-100">
+        <div class="card h-100">
+          <div class="card-header text-dark text-center fw-bold text-uppercase">
+            {{ title }}
+          </div>
+
+          <table class="table table-bordered mt-1 table-sm table-hover">
+            <tbody>
+              <tr
+                class="h-100"
+                *ngFor="let item of elements"
+                (click)="selectRegion(item.nom)"
+              >
+                <td>{{ item.nom }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="container" *ngIf="elements.length <= 0">
+            <div class="alert alert-danger p-3 text-center fw-bold">
+              région indisponible
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

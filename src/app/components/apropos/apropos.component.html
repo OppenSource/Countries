@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <bar-rating [(rate)]="rate" (rateChange)="handleRate($event)" [max]="5" class="mx-auto mt-3">
+    <ng-template ratingActive>
+      <i class="bi bi-star-fill h2" style="margin: 2px; color: #edb867"></i>
+    </ng-template>
+    <ng-template ratingInactive>
+      <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
+    </ng-template>
+  </bar-rating>
+</div>

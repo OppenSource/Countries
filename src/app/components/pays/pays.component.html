@@ -1,0 +1,79 @@
+<main class="h-400">
+  <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row">
+      <div class="col-12 h-100">
+        <div class="card h-100">
+          <div class="card-header text-dark text-center fw-bold text-uppercase">
+            {{ title }}
+          </div>
+
+          <div class="container" *ngIf="elements.length > 0">
+            <div class="input-group input-group-sm mb-3 rounded- mt-2">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                (input)="onInputChange($event)"
+                [(ngModel)]="searchQuery"
+                placeholder="Filtrez la liste des pays disponibles...."
+              />
+
+              <div class="input-group-prepend rounded-0">
+                <span
+                  class="input-group-text rounded-0"
+                  id="inputGroup-sizing-sm"
+                  >Recherche</span
+                >
+              </div>
+            </div>
+
+            <table class="table table-bordered mt-1 table-sm table-hover">
+              <tbody>
+                <tr *ngFor="let item of getPaginatedPays()">
+                  <td>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img
+                          [src]="item.image"
+                          alt="https://flagcdn.com/w320/bf.png"
+                          width="110"
+                          srcset=""
+                        />
+                      </div>
+                      <div class="col-md-8">
+                        <span class="text-sm-left"
+                          >Nom : <span class="m-3"> {{ item.nom }} </span>
+                        </span>
+                        <br />
+                        <span class="text-sm-left"
+                          >Capitale :
+                          <span class="m-3"> {{ item.capitale }} </span> </span
+                        ><br />
+                        <span class="text-sm-left"
+                          >Population :
+                          <span class="m-3"> {{ item.population }} </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <!-- Pagination -->
+              <pagination
+                [totalItems]="searchResult.length"
+                [(ngModel)]="currentPage"
+              ></pagination>
+            </table>
+          </div>
+
+          <div class="container mt-3" *ngIf="elements.length <= 0">
+            <div class="alert alert-danger p-3 text-center fw-bold">
+              région indisponible
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

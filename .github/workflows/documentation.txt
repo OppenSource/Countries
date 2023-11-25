@@ -1,0 +1,9 @@
+La commande suivante, "npm run tests -- --no-watch --code-coverage", est utilisée pour exécuter des tests unitaires dans un projet Node.js à l'aide de l'outil npm (Node Package Manager). Voici ce que font les différents arguments :
+
+    "run tests" : il s'agit de l'appel à une commande spécifique définie dans le fichier de configuration "package.json" du projet. Dans ce cas, il exécute les tests définis dans le cadre du script "tests" du fichier "package.json".
+
+    "--no-watch" : cet argument est généralement spécifique à l'outil de test utilisé dans le projet. Il indique à l'outil de ne pas surveiller les modifications de fichier en temps réel et de lancer les tests une seule fois.
+
+    "--code-coverage" : cet argument demande à l'outil de test de générer un rapport de couverture de code après l'exécution des tests. Le rapport de couverture de code indique quelle partie du code a été exécutée pendant les tests et peut aider à identifier les zones non testées ou insuffisamment testées.
+
+En résumé, la commande "npm run tests -- --no-watch --code-coverage" exécute les tests unitaires dans un projet Node.js une fois, sans surveillance des modifications, et génère un rapport de couverture de code pour évaluer la qualité des tests.
