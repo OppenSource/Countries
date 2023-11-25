@@ -1,35 +1,30 @@
-
 name: CI/CD
 
 on:
-    push:
-        branches:
-            - master
-            - develop
+  push:
+    branches:
+      - master
+      - develop
 
-    pull_request:
-        branches:
-            - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-    tests:
-        runs-on: ubuntu-lastest
-        steps:
-            -   name: Checkout code
-                uses: action/checkout@v2
+  tests:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v2
 
-            -   name: Setup Node
-                uses: actions/setup_node@v2
-                with:
-                    node_version: 18.x
+      - name: Setup Node
+        uses: actions/setup_node@v2
+        with:
+          node_version: 18.x
 
-            -   name: Installer les dépendances
-                run: npm install
+      - name: Installer les dépendances
+        run: npm install
 
-            # permet de savoir quelles parties de l'application sont convers par les tests
-            -   name: Tests
-                run: npm run tests -- --no-watch --code-coverage
-
-
-
-
+      # permet de savoir quelles parties de l'application sont convers par les tests
+      - name: Tests
+        run: npm run test -- --no-watch --code-coverage
