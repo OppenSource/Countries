@@ -41,5 +41,5 @@ jobs:
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
 
       # permet de savoir quelles parties de l'application sont convers par les tests
-      #- name: Tests
-      #  run: npm run test -- --no-watch --code-coverage
+      - name: Tests
+        run: npm run test -- --no-watch --code-coverage
